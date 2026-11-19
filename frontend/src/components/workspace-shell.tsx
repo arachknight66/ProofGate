@@ -98,12 +98,12 @@ export function WorkspaceShell({ children }: { children: React.ReactNode }) {
           <span>LOCAL SYNTHETIC DATA</span>
         </div>
 
-        <div className="sidebar-user" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
+        <div className="sidebar-user">
+          <div style={{ display: "flex", gap: "0.6rem", alignItems: "center", minWidth: 0, flex: 1 }}>
             <span className="avatar">
               {current.name.split(" ").map((part) => part[0]).join("")}
             </span>
-            <div>
+            <div style={{ minWidth: 0, overflow: "hidden" }}>
               <strong>{current.name}</strong>
               <small>{current.role.toUpperCase()}</small>
             </div>
@@ -112,23 +112,27 @@ export function WorkspaceShell({ children }: { children: React.ReactNode }) {
             onClick={handleLogout}
             title="Sign out of ProofGate"
             style={{
-              background: "transparent",
-              border: "1px solid #333",
-              color: "#888",
+              flexShrink: 0,
+              background: "#1c231e",
+              border: "1px solid #364239",
+              color: "#a4b3a6",
               cursor: "pointer",
-              padding: "4px 8px",
+              padding: "4px 7px",
               fontSize: "0.65rem",
-              letterSpacing: "0.05em",
-              textTransform: "uppercase",
-              transition: "all 0.2s ease",
+              fontFamily: '"IBM Plex Mono", monospace',
+              letterSpacing: "0.06em",
+              borderRadius: "2px",
+              transition: "all 0.15s ease",
             }}
             onMouseOver={(e) => {
               (e.currentTarget as HTMLButtonElement).style.borderColor = "#FF5252";
               (e.currentTarget as HTMLButtonElement).style.color = "#FF5252";
+              (e.currentTarget as HTMLButtonElement).style.background = "rgba(255, 82, 82, 0.1)";
             }}
             onMouseOut={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.borderColor = "#333";
-              (e.currentTarget as HTMLButtonElement).style.color = "#888";
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "#364239";
+              (e.currentTarget as HTMLButtonElement).style.color = "#a4b3a6";
+              (e.currentTarget as HTMLButtonElement).style.background = "#1c231e";
             }}
           >
             LOGOUT
